@@ -13,9 +13,11 @@ func Test_numHandler(t *testing.T) {
 		path             string
 		expectedCode     int
 		expectedResponse string
+		method           string
 	}
 	tests := []cases{
-		{name: "test prime", path: "/19", expectedCode: 200, expectedResponse: `{"isPrime":true}`},
+		{method: "GET", name: "test prime", path: "/19", expectedCode: 200, expectedResponse: `{"isPrime":true}`},
+		{name: "test not prime", path: "/9", expectedCode: 200, expectedResponse: `{"isPrime":false}`},
 		{name: "test not prime", path: "/9", expectedCode: 200, expectedResponse: `{"isPrime":false}`},
 	}
 	for _, tt := range tests {
